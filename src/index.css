@@ -146,10 +146,18 @@ All colors MUST be HSL.
     --ring: 221 83% 53%;
     
     /* Override dark surface colors for light theme */
+    --dark-background: 0 0% 100%;
     --dark-surface: 0 0% 98%;
     --dark-surface-elevated: 0 0% 96%;
+    --dark-foreground: 220 90% 8%;
+    --dark-muted: 220 8% 46%;
+    --dark-subtle: 220 13% 60%;
     --corporate-gray: 220 13% 91%;
     --corporate-gray-light: 220 13% 94%;
+    
+    /* Override gradients for light theme */
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 13% 96%) 100%);
+    --gradient-elegant: linear-gradient(135deg, hsl(0 0% 98%), hsl(220 13% 94%));
   }
 }
 
@@ -165,7 +173,7 @@ All colors MUST be HSL.
   }
   
   .light body {
-    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)));
+    background: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 13% 96%));
   }
   
   /* Custom scrollbar */
