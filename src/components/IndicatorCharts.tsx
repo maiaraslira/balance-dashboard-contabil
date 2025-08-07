@@ -138,7 +138,7 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
       {/* Evolução da Receita */}
       <Card className="bg-gradient-card border border-executive-gray/30 shadow-card-executive hover:shadow-executive transition-all duration-300">
         <CardHeader>
-          <CardTitle className="text-burnt-orange">Evolução da Receita Líquida</CardTitle>
+          <CardTitle className="text-primary">Evolução da Receita Líquida</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -147,12 +147,12 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
               <XAxis dataKey="year" />
               <YAxis tickFormatter={(value) => `R$ ${(value / 1000).toFixed(0)}B`} />
               <Tooltip formatter={(value: number) => formatCurrency(value)} />
-              <Line 
+               <Line 
                 type="monotone" 
                 dataKey="value" 
-                stroke="hsl(var(--burnt-orange))" 
+                stroke="hsl(var(--primary))" 
                 strokeWidth={3}
-                dot={{ fill: 'hsl(var(--burnt-orange))', strokeWidth: 2, r: 6 }}
+                dot={{ fill: 'hsl(var(--primary))', strokeWidth: 2, r: 6 }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -162,7 +162,7 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
       {/* Evolução do Lucro Bruto */}
       <Card className="bg-gradient-card border border-executive-gray/30 shadow-card-executive hover:shadow-executive transition-all duration-300">
         <CardHeader>
-          <CardTitle className="text-burnt-orange">Evolução do Lucro Bruto</CardTitle>
+          <CardTitle className="text-primary">Evolução do Lucro Bruto</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -171,12 +171,12 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
               <XAxis dataKey="year" />
               <YAxis tickFormatter={(value) => `R$ ${(value / 1000).toFixed(0)}B`} />
               <Tooltip formatter={(value: number) => formatCurrency(value)} />
-              <Line 
+               <Line 
                 type="monotone" 
                 dataKey="value" 
-                stroke="hsl(var(--success-orange))" 
+                stroke="#22c55e" 
                 strokeWidth={3}
-                dot={{ fill: 'hsl(var(--success-orange))', strokeWidth: 2, r: 6 }}
+                dot={{ fill: '#22c55e', strokeWidth: 2, r: 6 }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -186,7 +186,7 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
       {/* EBITDA */}
       <Card className="bg-gradient-card border border-executive-gray/30 shadow-card-executive hover:shadow-executive transition-all duration-300">
         <CardHeader>
-          <CardTitle className="text-burnt-orange">Evolução do EBITDA</CardTitle>
+          <CardTitle className="text-primary">Evolução do EBITDA</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -195,12 +195,12 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
               <XAxis dataKey="year" />
               <YAxis tickFormatter={(value) => `R$ ${value.toFixed(0)}M`} />
               <Tooltip formatter={(value: number) => formatCurrency(value)} />
-              <Line 
+               <Line 
                 type="monotone" 
                 dataKey="value" 
-                stroke="hsl(var(--golden-accent))" 
+                stroke="#f59e0b" 
                 strokeWidth={3}
-                dot={{ fill: 'hsl(var(--golden-accent))', strokeWidth: 2, r: 6 }}
+                dot={{ fill: '#f59e0b', strokeWidth: 2, r: 6 }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -210,7 +210,7 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
       {/* Margens */}
       <Card className="bg-gradient-card border border-executive-gray/30 shadow-card-executive hover:shadow-executive transition-all duration-300">
         <CardHeader>
-          <CardTitle className="text-burnt-orange">Análise de Margens</CardTitle>
+          <CardTitle className="text-primary">Análise de Margens</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -219,15 +219,15 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
               <XAxis dataKey="year" />
               <YAxis tickFormatter={(value) => `${value.toFixed(1)}%`} />
               <Tooltip formatter={(value: number) => `${value.toFixed(2)}%`} />
-              <Bar 
+               <Bar 
                 dataKey="margemBruta" 
-                fill="hsl(var(--success-orange))"
+                fill="#22c55e"
                 name="Margem Bruta"
                 radius={[2, 2, 0, 0]}
               />
               <Bar 
                 dataKey="margemEbitda" 
-                fill="hsl(var(--golden-accent))"
+                fill="#f59e0b"
                 name="Margem EBITDA"
                 radius={[2, 2, 0, 0]}
               />
@@ -239,7 +239,7 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
       {/* Taxa de Crescimento */}
       <Card className="bg-gradient-card border border-executive-gray/30 shadow-card-executive hover:shadow-executive transition-all duration-300">
         <CardHeader>
-          <CardTitle className="text-burnt-orange">Taxa de Crescimento Anual</CardTitle>
+          <CardTitle className="text-primary">Taxa de Crescimento Anual</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -248,21 +248,21 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
               <XAxis dataKey="year" />
               <YAxis tickFormatter={(value) => `${value.toFixed(0)}%`} />
               <Tooltip formatter={(value: number) => `${value.toFixed(1)}%`} />
-              <Bar 
+               <Bar 
                 dataKey="crescimentoReceita" 
-                fill="hsl(var(--burnt-orange))"
+                fill="hsl(var(--primary))"
                 name="Crescimento Receita"
                 radius={[2, 2, 0, 0]}
               />
               <Bar 
                 dataKey="crescimentoLucro" 
-                fill="hsl(var(--success-orange))"
+                fill="#22c55e"
                 name="Crescimento Lucro Bruto"
                 radius={[2, 2, 0, 0]}
               />
               <Bar 
                 dataKey="crescimentoEbitda" 
-                fill="hsl(var(--golden-accent))"
+                fill="#f59e0b"
                 name="Crescimento EBITDA"
                 radius={[2, 2, 0, 0]}
               />
@@ -274,7 +274,7 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
       {/* Análise de Despesas */}
       <Card className="bg-gradient-card border border-executive-gray/30 shadow-card-executive hover:shadow-executive transition-all duration-300">
         <CardHeader>
-          <CardTitle className="text-burnt-orange">Análise de Despesas (% Receita Líquida)</CardTitle>
+          <CardTitle className="text-primary">Análise de Despesas (% Receita Líquida)</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -283,21 +283,21 @@ export const IndicatorCharts = ({ data, years }: IndicatorChartsProps) => {
               <XAxis dataKey="year" />
               <YAxis tickFormatter={(value) => `${value.toFixed(0)}%`} />
               <Tooltip formatter={(value: number) => `${value.toFixed(1)}%`} />
-              <Bar 
+               <Bar 
                 dataKey="cmvPercent" 
-                fill="hsl(var(--negative))"
+                fill="#ef4444"
                 name="CMV"
                 radius={[2, 2, 0, 0]}
               />
               <Bar 
                 dataKey="vendasPercent" 
-                fill="hsl(var(--warning))"
+                fill="#f59e0b"
                 name="Vendas e Marketing"
                 radius={[2, 2, 0, 0]}
               />
               <Bar 
                 dataKey="adminPercent" 
-                fill="hsl(var(--neutral))"
+                fill="#6b7280"
                 name="Administrativas"
                 radius={[2, 2, 0, 0]}
               />

@@ -48,14 +48,14 @@ export const Dashboard = () => {
                 <ThemeToggle />
               </div>
               <div className="flex items-center justify-center mb-6">
-                <img 
-                  src="/lovable-uploads/2240fbf5-992f-488c-97a6-5ee6a5fb65d1.png" 
-                  alt="Natura" 
+                 <img 
+                  src="/src/assets/balance-logo.png" 
+                  alt="Balancê" 
                   className="h-20 w-auto"
                 />
               </div>
-              <h1 className="text-4xl font-bold text-primary-blue mb-4 font-sans">
-                Dashboard Contábil
+               <h1 className="text-4xl font-bold text-primary-blue mb-4 font-sans">
+                Balancê
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-sans">
                 Análise Estratégica - Natura S/A
@@ -117,15 +117,15 @@ export const Dashboard = () => {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
           <div className="flex items-center gap-4 mb-4 lg:mb-0">
-            <img 
-              src="/lovable-uploads/2240fbf5-992f-488c-97a6-5ee6a5fb65d1.png" 
-              alt="Natura" 
+             <img 
+              src="/src/assets/balance-logo.png" 
+              alt="Balancê" 
               className="h-14 w-auto"
             />
             <div className="flex items-center gap-4">
               <div>
                 <h1 className="text-3xl font-bold text-primary-blue font-sans">
-                  Dashboard Contábil
+                  Balancê
                 </h1>
                 <p className="text-muted-foreground font-sans">
                   Análise Estratégica - Natura S/A
