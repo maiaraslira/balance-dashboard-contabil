@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light theme (for contrast when needed) */
+    --background: 220 20% 98%;
+    --foreground: 220 90% 8%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 220 90% 8%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 90% 8%;
+    
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 220 20% 95%;
+    --secondary-foreground: 220 90% 8%;
+    
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 10% 45%;
+    
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 220 20% 88%;
+    --input: 220 20% 94%;
+    --ring: 221 83% 53%;
+    
+    /* Dark theme - elegant corporate blue theme */
+    --dark-background: 215 28% 8%;
+    --dark-surface: 215 25% 10%;
+    --dark-surface-elevated: 215 20% 12%;
+    --dark-foreground: 210 20% 95%;
+    --dark-muted: 215 20% 60%;
+    --dark-subtle: 215 20% 30%;
+    
+    /* Corporate blue palette */
+    --primary-blue: 220 100% 65%;
+    --primary-blue-dark: 220 100% 50%;
+    --primary-blue-light: 220 100% 75%;
+    --success-green: 142 70% 50%;
+    --success-green-dark: 142 70% 35%;
+    --warning-orange: 38 95% 60%;
+    --destructive-red: 0 75% 60%;
+    --corporate-blue: 220 100% 65%;
+    --corporate-blue-dark: 220 100% 50%;
+    --corporate-gray: 215 20% 15%;
+    --corporate-gray-light: 215 20% 20%;
+    --accent-green: 142 70% 50%;
+    
+    /* Status colors */
+    --success-color: 142 70% 50%;
+    --warning-color: 38 95% 60%;
+    --danger-color: 0 75% 60%;
+    --neutral-color: 215 20% 50%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 65%), hsl(220 100% 50%));
+    --gradient-success: linear-gradient(135deg, hsl(142 70% 50%), hsl(142 70% 35%));
+    --gradient-elegant: linear-gradient(135deg, hsl(215 25% 10%), hsl(215 20% 12%));
+    --gradient-executive: linear-gradient(135deg, hsl(220 100% 65%), hsl(142 70% 50%));
+    --gradient-card: linear-gradient(135deg, hsl(215 25% 10%) 0%, hsl(215 20% 12%) 100%);
+    
+    /* Shadows */
+    --shadow-executive: 0 25px 50px -12px hsl(220 100% 65% / 0.25);
+    --shadow-success: 0 15px 35px -10px hsl(142 70% 50% / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(220 100% 65% / 0.15);
+    --shadow-subtle: 0 4px 20px -4px hsl(215 20% 15% / 0.4);
+    
+    /* Animation */
+    --transition-executive: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --radius: 0.75rem;
+  }
+
+  /* Default to dark theme */
+  :root {
+    --background: var(--dark-background);
+    --foreground: var(--dark-foreground);
+    
+    --card: var(--dark-surface);
+    --card-foreground: var(--dark-foreground);
+    
+    --popover: var(--dark-surface-elevated);
+    --popover-foreground: var(--dark-foreground);
+    
+    --primary: var(--primary-blue);
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: var(--corporate-gray);
+    --secondary-foreground: var(--dark-foreground);
+    
+    --muted: var(--corporate-gray);
+    --muted-foreground: var(--dark-muted);
+    
+    --accent: var(--success-green);
+    --accent-foreground: var(--dark-background);
+    
+    --destructive: var(--destructive-red);
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: var(--corporate-gray-light);
+    --input: var(--dark-surface-elevated);
+    --ring: var(--primary-blue);
+  }
+
+  /* Light theme overrides */
+  .light {
+    --background: 220 20% 98%;
+    --foreground: 220 90% 8%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 220 90% 8%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 90% 8%;
+    
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 220 20% 95%;
+    --secondary-foreground: 220 90% 8%;
+    
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 10% 45%;
+    
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 220 20% 88%;
+    --input: 220 20% 94%;
+    --ring: 221 83% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)));
+    min-height: 100vh;
+  }
+  
+  .light body {
+    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--secondary)));
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--dark-surface));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary-blue));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-blue-light));
+  }
+}
