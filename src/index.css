@@ -117,23 +117,23 @@ All colors MUST be HSL.
 
   /* Light theme overrides */
   .light {
-    --background: 220 20% 98%;
-    --foreground: 220 90% 8%;
+    --background: 40 42% 95%; /* #faefe6 converted to HSL */
+    --foreground: 220 90% 15%; /* Dark text for better contrast */
     
-    --card: 0 0% 100%;
-    --card-foreground: 220 90% 8%;
+    --card: 40 35% 98%; /* Slightly lighter card background */
+    --card-foreground: 220 90% 15%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 90% 8%;
+    --popover: 40 35% 98%;
+    --popover-foreground: 220 90% 15%;
     
     --primary: 221 83% 53%;
     --primary-foreground: 0 0% 98%;
     
-    --secondary: 220 20% 95%;
-    --secondary-foreground: 220 90% 8%;
+    --secondary: 40 25% 90%; /* Adjusted to complement the cream background */
+    --secondary-foreground: 220 90% 15%;
     
-    --muted: 220 20% 96%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 40 20% 85%; /* Harmonious with the cream theme */
+    --muted-foreground: 220 15% 35%; /* Better contrast for muted text */
     
     --accent: 221 83% 53%;
     --accent-foreground: 0 0% 98%;
@@ -141,8 +141,8 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
     
-    --border: 220 20% 88%;
-    --input: 220 20% 94%;
+    --border: 40 15% 80%; /* Subtle border that works with cream */
+    --input: 40 30% 92%; /* Input background matching the theme */
     --ring: 221 83% 53%;
   }
 }

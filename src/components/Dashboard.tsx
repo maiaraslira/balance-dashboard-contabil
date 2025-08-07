@@ -43,7 +43,10 @@ export const Dashboard = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-8 relative">
+              <div className="absolute top-0 right-4">
+                <ThemeToggle />
+              </div>
               <div className="flex items-center justify-center mb-6">
                 <img 
                   src="/lovable-uploads/2240fbf5-992f-488c-97a6-5ee6a5fb65d1.png" 
