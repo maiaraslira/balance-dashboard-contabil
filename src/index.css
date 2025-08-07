@@ -117,22 +117,22 @@ All colors MUST be HSL.
 
   /* Light theme overrides */
   .light {
-    --background: 0 0% 100%; /* Pure white background */
+    --background: 38 42% 96%; /* #faefe6 background */
     --foreground: 220 90% 8%; /* Dark text for excellent contrast */
     
-    --card: 0 0% 100%; /* White cards */
+    --card: 38 42% 98%; /* Slightly lighter cards */
     --card-foreground: 220 90% 8%;
     
-    --popover: 0 0% 100%;
+    --popover: 38 42% 98%;
     --popover-foreground: 220 90% 8%;
     
     --primary: 221 83% 53%;
     --primary-foreground: 0 0% 98%;
     
-    --secondary: 220 15% 96%; /* Very light gray */
+    --secondary: 38 25% 92%; /* Beige secondary */
     --secondary-foreground: 220 90% 8%;
     
-    --muted: 220 13% 91%; /* Light muted background */
+    --muted: 38 25% 90%; /* Beige muted background */
     --muted-foreground: 220 8% 46%; /* Muted text */
     
     --accent: 221 83% 53%;
@@ -141,23 +141,23 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
     
-    --border: 220 13% 91%; /* Light border */
-    --input: 220 13% 95%; /* Light input background */
+    --border: 38 25% 85%; /* Beige border */
+    --input: 38 25% 94%; /* Light beige input background */
     --ring: 221 83% 53%;
     
     /* Override dark surface colors for light theme */
-    --dark-background: 0 0% 100%;
-    --dark-surface: 0 0% 98%;
-    --dark-surface-elevated: 0 0% 96%;
+    --dark-background: 38 42% 96%;
+    --dark-surface: 38 42% 98%;
+    --dark-surface-elevated: 38 42% 99%;
     --dark-foreground: 220 90% 8%;
     --dark-muted: 220 8% 46%;
     --dark-subtle: 220 13% 60%;
-    --corporate-gray: 220 13% 91%;
-    --corporate-gray-light: 220 13% 94%;
+    --corporate-gray: 38 25% 90%;
+    --corporate-gray-light: 38 25% 92%;
     
     /* Override gradients for light theme */
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 13% 96%) 100%);
-    --gradient-elegant: linear-gradient(135deg, hsl(0 0% 98%), hsl(220 13% 94%));
+    --gradient-card: linear-gradient(135deg, hsl(38 42% 98%) 0%, hsl(38 25% 92%) 100%);
+    --gradient-elegant: linear-gradient(135deg, hsl(38 42% 96%), hsl(38 25% 90%));
   }
 }
 
@@ -173,7 +173,7 @@ All colors MUST be HSL.
   }
   
   .light body {
-    background: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 13% 96%));
+    background: linear-gradient(135deg, hsl(38 42% 96%), hsl(38 25% 92%));
   }
   
   /* Custom scrollbar */
