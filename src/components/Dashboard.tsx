@@ -58,7 +58,7 @@ export const Dashboard = () => {
                 Balancê
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-sans">
-                Análise Estratégica - Natura S/A
+                Análise Contábil & Estratégica
               </p>
             </div>
 
@@ -128,7 +128,7 @@ export const Dashboard = () => {
                   Balancê
                 </h1>
                 <p className="text-muted-foreground font-sans">
-                  Análise Estratégica - Natura S/A
+                  Análise Contábil & Estratégica
                 </p>
               </div>
               <div className="flex gap-2">
