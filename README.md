@@ -37,10 +37,9 @@ O painel utiliza como base um arquivo `.csv` com a seguinte estrutura (exemplo i
 
 
 ## Atualização de Dados
+
 Para atualizar o painel com novos dados:
-
 Substitua o arquivo .csv na pasta data/ com o novo arquivo (seguindo a mesma estrutura de colunas).
-
 Recarregue a aplicação.
 
 👥 Equipe
