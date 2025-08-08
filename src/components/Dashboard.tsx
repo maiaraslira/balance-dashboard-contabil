@@ -51,7 +51,7 @@ export const Dashboard = () => {
                  <img 
                   src="/lovable-uploads/99a18629-7630-46cf-aa9f-fe47dfd4acfb.png" 
                   alt="Balancê" 
-                  className="h-20 w-auto"
+                  className="h-32 w-auto"
                 />
               </div>
                <h1 className="text-4xl font-bold text-primary-blue mb-4 font-sans">
@@ -120,7 +120,7 @@ export const Dashboard = () => {
              <img 
               src="/lovable-uploads/99a18629-7630-46cf-aa9f-fe47dfd4acfb.png" 
               alt="Balancê" 
-              className="h-14 w-auto"
+              className="h-20 w-auto"
             />
             <div className="flex items-center gap-4">
               <div>
