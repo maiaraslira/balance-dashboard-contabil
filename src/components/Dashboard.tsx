@@ -125,12 +125,6 @@ export const Dashboard = () => {
                 </p>
               </div>
               <div className="flex gap-2">
-                <Link to="/indicadores-economicos">
-                  <Button variant="outline" size="sm" className="border-border hover:bg-muted">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Indicadores Econômicos
-                  </Button>
-                </Link>
                 <ThemeToggle />
               </div>
             </div>
