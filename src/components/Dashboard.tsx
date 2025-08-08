@@ -49,7 +49,7 @@ export const Dashboard = () => {
               </div>
               <div className="flex items-center justify-center mb-6">
                  <img 
-                  src="/lovable-uploads/99a18629-7630-46cf-aa9f-fe47dfd4acfb.png" 
+                  src="/lovable-uploads/6da10843-0470-418c-abf9-1a0053f1834a.png" 
                   alt="Balancê" 
                   className="h-32 w-auto"
                 />
@@ -118,7 +118,7 @@ export const Dashboard = () => {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
           <div className="flex items-center gap-4 mb-4 lg:mb-0">
              <img 
-              src="/lovable-uploads/99a18629-7630-46cf-aa9f-fe47dfd4acfb.png" 
+              src="/lovable-uploads/6da10843-0470-418c-abf9-1a0053f1834a.png" 
               alt="Balancê" 
               className="h-20 w-auto"
             />
