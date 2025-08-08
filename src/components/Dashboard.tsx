@@ -12,8 +12,28 @@ import { Footer } from './Footer';
 import { ThemeToggle } from './ThemeToggle';
 
 interface FinancialData {
-  Indicador: string;
-  [year: string]: string | number;
+  Ano: number;
+  Ativo_Circulante: number;
+  Passivo_Circulante: number;
+  Patrimonio_Liquido: number;
+  Ativo_Total: number;
+  Passivo_Nao_Circulante: number;
+  Receita_Liquida: number;
+  Lucro_Liquido: number;
+  Endividamento_Geral: number;
+  Participacao_Capitais_Terceiros: number;
+  Composicao_Endividamento: number;
+  Grau_Imobilizacao_PL: number;
+  Grau_Imobilizacao_RNC: number;
+  Liquidez_Geral: number;
+  Liquidez_Corrente: number;
+  Liquidez_Seca: number;
+  Giro_Ativo: number;
+  Margem_Liquida: number;
+  ROA: number;
+  ROE: number;
+  MAF: number;
+  ROI_DuPont: number;
 }
 
 export const Dashboard = () => {
@@ -21,14 +41,12 @@ export const Dashboard = () => {
   const [selectedYear, setSelectedYear] = useState<string>('');
 
   const years = data.length > 0 
-    ? Object.keys(data[0]).filter(key => key !== 'Indicador' && !isNaN(Number(key))).sort()
+    ? [...new Set(data.map(d => d.Ano.toString()))].sort()
     : [];
 
   const handleDataLoad = (newData: FinancialData[]) => {
     setData(newData);
-    const availableYears = Object.keys(newData[0] || {})
-      .filter(key => key !== 'Indicador' && !isNaN(Number(key)))
-      .sort();
+    const availableYears = [...new Set(newData.map(d => d.Ano.toString()))].sort();
     setSelectedYear(availableYears[availableYears.length - 1] || '');
   };
 

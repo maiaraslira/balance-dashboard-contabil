@@ -5,8 +5,28 @@ import { Badge } from '@/components/ui/badge';
 import { Calculator, TrendingUp, AlertTriangle, Target } from 'lucide-react';
 
 interface FinancialData {
-  Indicador: string;
-  [year: string]: string | number;
+  Ano: number;
+  Ativo_Circulante: number;
+  Passivo_Circulante: number;
+  Patrimonio_Liquido: number;
+  Ativo_Total: number;
+  Passivo_Nao_Circulante: number;
+  Receita_Liquida: number;
+  Lucro_Liquido: number;
+  Endividamento_Geral: number;
+  Participacao_Capitais_Terceiros: number;
+  Composicao_Endividamento: number;
+  Grau_Imobilizacao_PL: number;
+  Grau_Imobilizacao_RNC: number;
+  Liquidez_Geral: number;
+  Liquidez_Corrente: number;
+  Liquidez_Seca: number;
+  Giro_Ativo: number;
+  Margem_Liquida: number;
+  ROA: number;
+  ROE: number;
+  MAF: number;
+  ROI_DuPont: number;
 }
 
 interface SimpleIndicatorsProps {
@@ -17,128 +37,88 @@ interface SimpleIndicatorsProps {
 
 export const SimpleIndicators = ({ data, selectedYear, previousYear }: SimpleIndicatorsProps) => {
   const indicators = useMemo(() => {
-    const findValue = (keywords: string[], year: string) => {
-      const item = data.find(d => 
-        keywords.some(keyword => 
-          d.Indicador.toLowerCase().includes(keyword.toLowerCase())
-        )
-      );
-      return item ? Number(item[year]) || 0 : 0;
+    const findData = (year: string) => {
+      return data.find(d => d.Ano.toString() === year);
     };
 
-    // Dados básicos disponíveis
-    const receitaLiquida = findValue(['receita líquida'], selectedYear);
-    const receitaLiquidaAnterior = findValue(['receita líquida'], previousYear);
-    
-    const receitaBruta = findValue(['receita bruta'], selectedYear);
-    const receitaBrutaAnterior = findValue(['receita bruta'], previousYear);
-    
-    const lucrobruto = findValue(['lucro bruto'], selectedYear);
-    const lucroBrutoAnterior = findValue(['lucro bruto'], previousYear);
-    
-    const ebitda = findValue(['ebitda'], selectedYear);
-    const ebitdaAnterior = findValue(['ebitda'], previousYear);
-    
-    const ebitdaRecorrente = findValue(['ebitda recorrente'], selectedYear);
-    const ebitdaRecorrenteAnterior = findValue(['ebitda recorrente'], previousYear);
-    
-    const cmv = Math.abs(findValue(['cmv'], selectedYear));
-    const cmvAnterior = Math.abs(findValue(['cmv'], previousYear));
-    
-    const depreciacao = findValue(['depreciação'], selectedYear);
-    const depreciacaoAnterior = findValue(['depreciação'], previousYear);
-    
-    const despesasVendas = Math.abs(findValue(['despesas com vendas'], selectedYear));
-    const despesasVendasAnterior = Math.abs(findValue(['despesas com vendas'], previousYear));
-    
-    const despesasAdmin = Math.abs(findValue(['despesas adm'], selectedYear));
-    const despesasAdminAnterior = Math.abs(findValue(['despesas adm'], previousYear));
+    const currentData = findData(selectedYear);
+    const previousData = findData(previousYear);
 
-    // Cálculo dos indicadores
-    const margemBruta = receitaLiquida ? (lucrobruto / receitaLiquida) * 100 : 0;
-    const margemBrutaAnterior = receitaLiquidaAnterior ? (lucroBrutoAnterior / receitaLiquidaAnterior) * 100 : 0;
-    
-    const margemEbitda = receitaLiquida ? (ebitda / receitaLiquida) * 100 : 0;
-    const margemEbitdaAnterior = receitaLiquidaAnterior ? (ebitdaAnterior / receitaLiquidaAnterior) * 100 : 0;
-    
-    const margemEbitdaRecorrente = receitaLiquida ? (ebitdaRecorrente / receitaLiquida) * 100 : 0;
-    const margemEbitdaRecorrenteAnterior = receitaLiquidaAnterior ? (ebitdaRecorrenteAnterior / receitaLiquidaAnterior) * 100 : 0;
-    
-    const cmvSobreReceita = receitaLiquida ? (cmv / receitaLiquida) * 100 : 0;
-    const cmvSobreReceitaAnterior = receitaLiquidaAnterior ? (cmvAnterior / receitaLiquidaAnterior) * 100 : 0;
-    
-    const despesasVendasSobreReceita = receitaLiquida ? (despesasVendas / receitaLiquida) * 100 : 0;
-    const despesasVendasSobreReceitaAnterior = receitaLiquidaAnterior ? (despesasVendasAnterior / receitaLiquidaAnterior) * 100 : 0;
-    
-    const despesasAdminSobreReceita = receitaLiquida ? (despesasAdmin / receitaLiquida) * 100 : 0;
-    const despesasAdminSobreReceitaAnterior = receitaLiquidaAnterior ? (despesasAdminAnterior / receitaLiquidaAnterior) * 100 : 0;
+    if (!currentData) return [];
 
-    const crescimentoReceita = receitaLiquidaAnterior ? ((receitaLiquida - receitaLiquidaAnterior) / Math.abs(receitaLiquidaAnterior)) * 100 : 0;
-    const crescimentoLucro = lucroBrutoAnterior ? ((lucrobruto - lucroBrutoAnterior) / Math.abs(lucroBrutoAnterior)) * 100 : 0;
-    const crescimentoEbitda = ebitdaAnterior ? ((ebitda - ebitdaAnterior) / Math.abs(ebitdaAnterior)) * 100 : 0;
+    const crescimentoReceita = previousData ? ((currentData.Receita_Liquida - previousData.Receita_Liquida) / Math.abs(previousData.Receita_Liquida)) * 100 : 0;
+    const crescimentoLucro = previousData ? ((currentData.Lucro_Liquido - previousData.Lucro_Liquido) / Math.abs(previousData.Lucro_Liquido)) * 100 : 0;
 
     return [
       {
         category: 'Rentabilidade',
         indicators: [
           {
-            name: 'Margem Bruta',
-            value: margemBruta,
-            previousValue: margemBrutaAnterior,
+            name: 'Margem Líquida',
+            value: currentData.Margem_Liquida,
+            previousValue: previousData?.Margem_Liquida || 0,
             format: 'percentage',
-            status: margemBruta > 50 ? 'good' : margemBruta > 40 ? 'warning' : 'bad',
-            description: 'Percentual do lucro bruto sobre a receita líquida'
+            status: currentData.Margem_Liquida > 10 ? 'good' : currentData.Margem_Liquida > 5 ? 'warning' : 'bad',
+            description: 'Percentual do lucro líquido sobre a receita líquida'
           },
           {
-            name: 'Margem EBITDA',
-            value: margemEbitda,
-            previousValue: margemEbitdaAnterior,
+            name: 'ROE',
+            value: currentData.ROE,
+            previousValue: previousData?.ROE || 0,
             format: 'percentage',
-            status: margemEbitda > 15 ? 'good' : margemEbitda > 10 ? 'warning' : 'bad',
-            description: 'Percentual do EBITDA sobre a receita líquida'
+            status: currentData.ROE > 15 ? 'good' : currentData.ROE > 10 ? 'warning' : 'bad',
+            description: 'Rentabilidade do patrimônio líquido'
           },
           {
-            name: 'Margem EBITDA Recorrente',
-            value: margemEbitdaRecorrente,
-            previousValue: margemEbitdaRecorrenteAnterior,
+            name: 'ROA',
+            value: currentData.ROA,
+            previousValue: previousData?.ROA || 0,
             format: 'percentage',
-            status: margemEbitdaRecorrente > 15 ? 'good' : margemEbitdaRecorrente > 10 ? 'warning' : 'bad',
-            description: 'EBITDA ajustado excluindo itens não recorrentes'
+            status: currentData.ROA > 5 ? 'good' : currentData.ROA > 2 ? 'warning' : 'bad',
+            description: 'Rentabilidade do ativo'
           }
         ]
       },
       {
-        category: 'Estrutura de Custos',
+        category: 'Liquidez e Endividamento',
         indicators: [
           {
-            name: 'CMV sobre Receita',
-            value: cmvSobreReceita,
-            previousValue: cmvSobreReceitaAnterior,
-            format: 'percentage',
-            status: cmvSobreReceita < 40 ? 'good' : cmvSobreReceita < 50 ? 'warning' : 'bad',
-            description: 'Custo dos produtos vendidos como % da receita'
+            name: 'Liquidez Corrente',
+            value: currentData.Liquidez_Corrente,
+            previousValue: previousData?.Liquidez_Corrente || 0,
+            format: 'decimal',
+            status: currentData.Liquidez_Corrente > 1.5 ? 'good' : currentData.Liquidez_Corrente > 1.0 ? 'warning' : 'bad',
+            description: 'Capacidade de pagar obrigações de curto prazo'
           },
           {
-            name: 'Despesas de Vendas/Marketing',
-            value: despesasVendasSobreReceita,
-            previousValue: despesasVendasSobreReceitaAnterior,
+            name: 'Endividamento Geral',
+            value: currentData.Endividamento_Geral,
+            previousValue: previousData?.Endividamento_Geral || 0,
             format: 'percentage',
-            status: despesasVendasSobreReceita < 40 ? 'good' : despesasVendasSobreReceita < 50 ? 'warning' : 'bad',
-            description: 'Despesas comerciais como % da receita'
+            status: currentData.Endividamento_Geral < 40 ? 'good' : currentData.Endividamento_Geral < 60 ? 'warning' : 'bad',
+            description: 'Proporção do ativo financiada por capitais de terceiros'
           },
           {
-            name: 'Despesas Administrativas',
-            value: despesasAdminSobreReceita,
-            previousValue: despesasAdminSobreReceitaAnterior,
+            name: 'Participação Capitais Terceiros',
+            value: currentData.Participacao_Capitais_Terceiros,
+            previousValue: previousData?.Participacao_Capitais_Terceiros || 0,
             format: 'percentage',
-            status: despesasAdminSobreReceita < 15 ? 'good' : despesasAdminSobreReceita < 20 ? 'warning' : 'bad',
-            description: 'Despesas administrativas como % da receita'
+            status: currentData.Participacao_Capitais_Terceiros < 50 ? 'good' : currentData.Participacao_Capitais_Terceiros < 100 ? 'warning' : 'bad',
+            description: 'Relação entre capital de terceiros e patrimônio líquido'
           }
         ]
       },
       {
-        category: 'Crescimento',
+        category: 'Eficiência e Crescimento',
         indicators: [
+          {
+            name: 'Giro do Ativo',
+            value: currentData.Giro_Ativo,
+            previousValue: previousData?.Giro_Ativo || 0,
+            format: 'decimal',
+            status: currentData.Giro_Ativo > 1.0 ? 'good' : currentData.Giro_Ativo > 0.5 ? 'warning' : 'bad',
+            description: 'Eficiência do uso dos ativos para gerar receita'
+          },
           {
             name: 'Crescimento da Receita',
             value: crescimentoReceita,
@@ -148,20 +128,12 @@ export const SimpleIndicators = ({ data, selectedYear, previousYear }: SimpleInd
             description: `Crescimento da receita vs ${previousYear}`
           },
           {
-            name: 'Crescimento do Lucro Bruto',
+            name: 'Crescimento do Lucro',
             value: crescimentoLucro,
             previousValue: 0,
             format: 'percentage',
             status: crescimentoLucro > 10 ? 'good' : crescimentoLucro > 0 ? 'warning' : 'bad',
-            description: `Crescimento do lucro bruto vs ${previousYear}`
-          },
-          {
-            name: 'Crescimento do EBITDA',
-            value: crescimentoEbitda,
-            previousValue: 0,
-            format: 'percentage',
-            status: crescimentoEbitda > 10 ? 'good' : crescimentoEbitda > 0 ? 'warning' : 'bad',
-            description: `Crescimento do EBITDA vs ${previousYear}`
+            description: `Crescimento do lucro líquido vs ${previousYear}`
           }
         ]
       }
