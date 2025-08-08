@@ -72,23 +72,19 @@ export const Dashboard = () => {
               {[
                 {
                   icon: <BarChart3 className="h-8 w-8 text-primary-blue" />,
-                  title: "Métricas Principais",
-                  description: "ROE, ROA, Margem Líquida e mais"
+                  title: "Métricas Principais"
                 },
                 {
                   icon: <TrendingUp className="h-8 w-8 text-success-green" />,
-                  title: "Evolução Temporal",
-                  description: "Gráficos interativos de tendências"
+                  title: "Evolução Temporal"
                 },
                 {
                   icon: <Calculator className="h-8 w-8 text-warning-orange" />,
-                  title: "Indicadores Avançados",
-                  description: "Análise DuPont e indicadores de atividade"
+                  title: "Indicadores Avançados"
                 },
                 {
                   icon: <FileText className="h-8 w-8 text-primary-blue-light" />,
-                  title: "Relatório Completo",
-                  description: "Mais de 20 indicadores calculados"
+                  title: "Relatório Completo"
                 }
               ].map((feature, index) => (
                 <div key={index} className="text-center p-6 rounded-lg bg-gradient-card border border-corporate-gray-light shadow-card-executive hover:shadow-executive transition-all duration-300 group">
@@ -98,9 +94,6 @@ export const Dashboard = () => {
                   <h3 className="font-semibold text-primary-blue mb-2 font-sans">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground font-sans">
-                    {feature.description}
-                  </p>
                 </div>
               ))}
             </div>
